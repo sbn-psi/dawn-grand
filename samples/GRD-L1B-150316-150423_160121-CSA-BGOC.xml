@@ -1,69 +1,106 @@
-<?xml version="1.0"?>
-<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A00.xsd">
   <Identification_Area>
-    <logical_identifier></logical_identifier>
-    <version_id></version_id>
-    <title></title>
-    <information_model_version></information_model_version>
+    <logical_identifier>urn:nasa:pds:dawn_grand:data:grd-l1b-150316-150423_160121-csa-bgoc</logical_identifier>
+    <version_id>0.0</version_id>
+    <title>GRaND BGO 2015-03-16T23:59:03</title>
+    <information_model_version>1.10.0.0</information_model_version>
     <product_class>Product_Observational</product_class>
   </Identification_Area>
   <Observation_Area>
     <Time_Coordinates>
-      <start_date_time></start_date_time>
-      <stop_date_time></stop_date_time>
+      <start_date_time>2015-03-16T23:59:03Z</start_date_time>
+      <stop_date_time>2015-04-23T23:58:03Z</stop_date_time>
     </Time_Coordinates>
+    <Primary_Result_Summary>
+      <purpose>Science</purpose>
+      <processing_level>Calibrated</processing_level>
+    </Primary_Result_Summary>
     <Investigation_Area>
-      <name></name>
-      <type></type>
+      <name>DAWN</name>
+      <type>Mission</type>
       <Internal_Reference>
-        <lid_reference></lid_reference>
-        <lidvid_reference></lidvid_reference>
-        <reference_type></reference_type>
+        <lid_reference>urn:nasa:pds:context:mission:dawn</lid_reference>
+        <reference_type>data_to_investigation</reference_type>
       </Internal_Reference>
     </Investigation_Area>
-    <Primary_Result_Summary>
-      <purpose></purpose>
-      <processing_level></processing_level>
-    </Primary_Result_Summary>
     <Observing_System>
-      <name></name>
       <Observing_System_Component>
-        <name></name>
-        <type></type>
+        <name>Gamma-Ray and Neutron Detector</name>
+        <type>Instrument</type>
       </Observing_System_Component>
     </Observing_System>
     <Target_Identification>
-      <name></name>
-      <type></type>
+      <name>(1) Ceres</name>
+      <type>Dwarf Planet</type>
     </Target_Identification>
-    <Mission_Area></Mission_Area>
-    <Discipline_Area/>
+    <Mission_Area>
+    </Mission_Area>
   </Observation_Area>
   <File_Area_Observational>
     <File>
-      <file_name></file_name>
-      <creation_date_time></creation_date_time>
-      <records></records>
-      <md5_checksum></md5_checksum>
+      <file_name>GRD-L1B-150316-150423_160121-CSA-BGOC.tab</file_name>
+      <creation_date_time>2018-09-07T00:00:00</creation_date_time>
+      <records>8023</records>
     </File>
     <Table_Character>
-      <offset></offset>
-      <record_delimiter></record_delimiter>
-      <records></records>
+      <offset unit="byte">0</offset>
+      <records>8023</records>
+      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       <Record_Character>
-        <fields></fields>
-        <record_length></record_length>
-        <groups></groups>
+        <fields>3</fields>
+        <groups>1</groups>
+        <record_length unit="byte">6188</record_length>
         <Field_Character>
-          <name></name>
-          <field_location></field_location>
-          <field_number></field_number>
-          <data_type></data_type>
-          <field_length></field_length>
-          <field_format></field_format>
-          <unit></unit>
-          <description></description>
+          <name>SCLK</name>
+          <field_number>1</field_number>
+          <field_location unit="byte">1</field_location>
+          <data_type>ASCII_Integer</data_type>
+          <field_length unit="byte">10</field_length>
+          <field_format>%10d</field_format>
+          <description>SCLK ticks at the end of the science accumulation interval (s) Each       
+    science data record has a unique SCLK value, which can be used as an      
+    identifier.</description>
         </Field_Character>
+        <Field_Character>
+          <name>SCET_UTC</name>
+          <field_number>2</field_number>
+          <field_location unit="byte">11</field_location>
+          <data_type>ASCII_Date_Time_YMD</data_type>
+          <field_length unit="byte">20</field_length>
+          <field_format>%-20s</field_format>
+          <description>UTC S/C event time (SCET) at the midpoint of the science accumulation     
+    interval.</description>
+        </Field_Character>
+        <Field_Character>
+          <name>ET_MID</name>
+          <field_number>3</field_number>
+          <field_location unit="byte">31</field_location>
+          <data_type>ASCII_Real</data_type>
+          <field_length unit="byte">12</field_length>
+          <field_format>%12.1f</field_format>
+          <unit>s</unit>
+          <description>Ephemeris time at the midpoint of the science accumulation interval (s).</description>
+        </Field_Character>
+        <Group_Field_Character>
+          <repetitions>1024</repetitions>
+          <fields>1</fields>
+          <groups>0</groups>
+          <group_location unit="byte">43</group_location>
+          <group_length unit="byte">6144</group_length>
+          <Field_Character>
+            <name>BGOC</name>
+            <field_number>1</field_number>
+            <field_location unit="byte">1</field_location>
+            <data_type>ASCII_Integer</data_type>
+            <field_length unit="byte">6</field_length>
+            <field_format>%6d</field_format>
+            <unit>counts</unit>
+            <description>1024-channel, calibrated BGO spectrum. The pulse height of each channel   
+    I=0,1023 is given by 8.9 x I with units of keV.</description>
+          </Field_Character>
+        </Group_Field_Character>
       </Record_Character>
     </Table_Character>
   </File_Area_Observational>
