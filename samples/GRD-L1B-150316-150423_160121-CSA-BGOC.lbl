@@ -1,0 +1,130 @@
+PDS_VERSION_ID                = PDS3                                          
+/* label standards identifiers PDS Version 3.8 */                             
+                                                                              
+/* File Characteristics */                                                    
+RECORD_TYPE                   = FIXED_LENGTH                                  
+RECORD_BYTES                  = 50                                            
+FILE_RECORDS                  = 8023                                          
+MD5_CHECKSUM                  = "b74a5eb282181d02e7660e6a98dc08ff"            
+                                                                              
+/* Pointers to Data Objects */                                                
+^TABLE                        = "GRD-L1B-150316-150423_160121-CSA-BGOC.TAB"   
+PRODUCER_FULL_NAME            = "T. H. PRETTYMAN"                             
+PRODUCER_INSTITUTION_NAME     = "PLANETARY SCIENCE INSTITUTE"                 
+                                                                              
+/* Identification Data Elements */                                            
+MISSION_NAME                  = "DAWN MISSION TO VESTA AND CERES"             
+MISSION_ID                    = "DAWN"                                        
+MISSION_PHASE_NAME            = "CERES SCIENCE APPROACH (CSA)"                
+TARGET_NAME                   = "1 CERES"                                     
+TARGET_TYPE                   = "ASTEROID"                                    
+INSTRUMENT_HOST_NAME          = "DAWN"                                        
+INSTRUMENT_HOST_ID            = "DAWN"                                        
+INSTRUMENT_ID                 = "GRAND"                                       
+INSTRUMENT_NAME               = "GAMMA-RAY AND NEUTRON DETECTOR"              
+DATA_SET_ID                   = "DAWN-A-GRAND-3-RDR-CERES-COUNTS-V1.0"        
+DATA_SET_NAME = "DAWN GRAND CALIBRATED (RDR) CERES COUNTS V1.0"               
+PRODUCT_ID                    = "GRD-L1B-150316-150423_160121-CSA-BGOC"       
+PRODUCT_TYPE                  = "DATA"                                        
+PRODUCT_VERSION_ID            = "1.0"                                         
+START_TIME                    = 2015-03-16T23:59:03                           
+STOP_TIME                     = 2015-04-23T23:58:03                           
+SPACECRAFT_CLOCK_START_COUNT  = "0479822515.000"                              
+SPACECRAFT_CLOCK_STOP_COUNT   = "0483105655.000"                              
+PRODUCT_CREATION_TIME         = 2016-01-21T16:55:52                           
+SPICE_FILE_NAME               = ("naif0011.tls",                              
+"dawn_203_sclkscet.00063.tsc")                                                
+                                                                              
+/* Data Object Definitions */                                                 
+OBJECT                        = TABLE                                         
+ ROWS                         = 8023                                          
+ ROW_BYTES                    = 6188                                          
+ COLUMNS                      = 4                                             
+ INTERCHANGE_FORMAT           = ASCII                                         
+ DESCRIPTION                  = "                                             
+                                                                              
+  This data file contains a time series of corrected and calibrated pulse     
+  height spectra measured by GRaND's bismuth germanate (BGO) scintillator     
+  during Ceres encounter. Each row contains the spacecraft clock (SCLK) ticks 
+  and spacecraft event UTC time (SCET_UTC) corresponding to the end of the    
+  science accumulation interval (accurate to 1s). The ephemeris time for the  
+  midpoint of the science interval is also included. Each row also contains   
+  the corresponding 1024-channel BGO spectrum accumulated. Each spectrum has  
+  been subjected to the following corrections:                                
+                                                                              
+    - Removal of analog-to-digital (ADC) differential nonlinearity artifacts  
+    - Gain and offset correction to put each spectrum on the same pulse height
+                                                                              
+  For each channel, the corresponding mid-point pulse height can be determined
+  by multiplying channel index (0-1023) by 8.9 keV/channel.                   
+                                                                              
+  The processing steps, including criteria for including spectra in the time  
+  series, are described by Yamashita and Prettyman, ''Dawn's Gamma Ray and    
+  Neutron Detector: BGO Data Processing'', which can be found in the DOCUMENT 
+  directory of this archive.                                                  
+                                                                              
+  Each record in this file can be matched to a record in the Ephemerides,     
+  Pointing, and Geometry (EPG) data file using the 9 digit SCLK code. The EPG 
+  file contains additional information needed for analysis and mapping,       
+  including the measurement time, spacecraft pointing and position, the solid 
+  angle of Ceres, instrument state information, and a proxy for galactic      
+  cosmic ray counting rates.                                                  
+  "                                                                           
+                                                                              
+ OBJECT                       = COLUMN                                        
+  NAME                        = "SCLK"                                        
+  DATA_TYPE                   = ASCII_INTEGER                                 
+  UNIT                        = SECONDS                                       
+  START_BYTE                  = 1                                             
+  BYTES                       = 10                                            
+  FORMAT                      = "I10"                                         
+  DESCRIPTION                 = "                                             
+    SCLK ticks at the end of the science accumulation interval (s) Each       
+    science data record has a unique SCLK value, which can be used as an      
+    identifier.                                                               
+   "                                                                          
+ END_OBJECT                   = COLUMN                                        
+                                                                              
+ OBJECT                       = COLUMN                                        
+  NAME                        = "SCET_UTC"                                    
+  DATA_TYPE                   = TIME                                          
+  UNIT                        = "N/A"                                         
+  START_BYTE                  = 11                                            
+  BYTES                       = 20                                            
+  FORMAT                      = "A20"                                         
+  DESCRIPTION                 = "                                             
+    UTC S/C event time (SCET) at the midpoint of the science accumulation     
+    interval.                                                                 
+   "                                                                          
+ END_OBJECT                   = COLUMN                                        
+                                                                              
+ OBJECT                       = COLUMN                                        
+  NAME                        = "ET_MID"                                      
+  DATA_TYPE                   = ASCII_REAL                                    
+  UNIT                        = "SECONDS"                                     
+  START_BYTE                  = 31                                            
+  BYTES                       = 12                                            
+  FORMAT                      = "F12.1"                                       
+  DESCRIPTION                 = "                                             
+    Ephemeris time at the midpoint of the science accumulation interval (s).  
+   "                                                                          
+ END_OBJECT                   = COLUMN                                        
+                                                                              
+ OBJECT                       = COLUMN                                        
+  NAME                        = "BGOC"                                        
+  DATA_TYPE                   = ASCII_INTEGER                                 
+  UNIT                        = "COUNTS"                                      
+  START_BYTE                  = 43                                            
+  BYTES                       = 6144                                          
+  ITEMS                       = 1024                                          
+  ITEM_BYTES                  = 6                                             
+  FORMAT                      = "I6"                                          
+  DESCRIPTION                 = "                                             
+    1024-channel, calibrated BGO spectrum. The pulse height of each channel   
+    I=0,1023 is given by 8.9 x I with units of keV.                           
+   "                                                                          
+ END_OBJECT                   = COLUMN                                        
+                                                                              
+END_OBJECT                    = TABLE                                         
+                                                                              
+END                                                                           
