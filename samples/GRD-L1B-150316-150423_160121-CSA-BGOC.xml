@@ -64,6 +64,32 @@
     <Table_Character>
       <offset unit="byte">0</offset>
       <records>8023</records>
+      <description>This data file contains a time series of corrected and calibrated pulse     
+  height spectra measured by GRaND's bismuth germanate (BGO) scintillator     
+  during Ceres encounter. Each row contains the spacecraft clock (SCLK) ticks 
+  and spacecraft event UTC time (SCET_UTC) corresponding to the end of the    
+  science accumulation interval (accurate to 1s). The ephemeris time for the  
+  midpoint of the science interval is also included. Each row also contains   
+  the corresponding 1024-channel BGO spectrum accumulated. Each spectrum has  
+  been subjected to the following corrections:                                
+                                                                              
+    - Removal of analog-to-digital (ADC) differential nonlinearity artifacts  
+    - Gain and offset correction to put each spectrum on the same pulse height
+                                                                              
+  For each channel, the corresponding mid-point pulse height can be determined
+  by multiplying channel index (0-1023) by 8.9 keV/channel.                   
+                                                                              
+  The processing steps, including criteria for including spectra in the time  
+  series, are described by Yamashita and Prettyman, ''Dawn's Gamma Ray and    
+  Neutron Detector: BGO Data Processing'', which can be found in the DOCUMENT 
+  directory of this archive.                                                  
+                                                                              
+  Each record in this file can be matched to a record in the Ephemerides,     
+  Pointing, and Geometry (EPG) data file using the 9 digit SCLK code. The EPG 
+  file contains additional information needed for analysis and mapping,       
+  including the measurement time, spacecraft pointing and position, the solid 
+  angle of Ceres, instrument state information, and a proxy for galactic      
+  cosmic ray counting rates.                                          </description>
       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       <Record_Character>
         <fields>3</fields>
