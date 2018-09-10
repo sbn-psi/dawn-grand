@@ -42,7 +42,7 @@
       <name>(1) Ceres</name>
       <type>Dwarf Planet</type>
     </Target_Identification>
-    <Mission_Area>
+    <Discipline_Area>
       <grns:GRNS_Properties>
         <grns:Instrument_State></grns:Instrument_State>
         <grns:Energy_Calibration>
@@ -53,7 +53,7 @@
           </grns:Polynomial>
         </grns:Energy_Calibration>
       </grns:GRNS_Properties>
-    </Mission_Area>
+    </Discipline_Area>
   </Observation_Area>
   <File_Area_Observational>
     <File>
