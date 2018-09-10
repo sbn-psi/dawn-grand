@@ -57,7 +57,7 @@
   </Observation_Area>
   <File_Area_Observational>
     <File>
-      <file_name>GRD-L1B-150316-150423_160121-CSA-BGOC.tab</file_name>
+      <file_name>sample_bgo.tab</file_name>
       <creation_date_time>2018-09-07T00:00:00</creation_date_time>
       <records>8023</records>
     </File>

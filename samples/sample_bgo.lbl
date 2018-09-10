@@ -8,7 +8,7 @@ FILE_RECORDS                  = 8023
 MD5_CHECKSUM                  = "b74a5eb282181d02e7660e6a98dc08ff"            
                                                                               
 /* Pointers to Data Objects */                                                
-^TABLE                        = "GRD-L1B-150316-150423_160121-CSA-BGOC.TAB"   
+^TABLE                        = "sample_bgo.tab"   
 PRODUCER_FULL_NAME            = "T. H. PRETTYMAN"                             
 PRODUCER_INSTITUTION_NAME     = "PLANETARY SCIENCE INSTITUTE"                 
                                                                               
